@@ -27,6 +27,7 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
+    # render
     # return false unless valid_move?(start_pos)
     skip = nil
     if current_player_name == self.name1
@@ -45,12 +46,14 @@ class Board
           count -= 1
         end
       end
-      if self.cups[next_idx].length == 0
-        return :switch
-      elsif next_idx == skip
+      render
+      next_turn(next_idx)
+      if next_idx == (skip + 7) % 14
         return :prompt
+      elsif self.cups[next_idx].length == 1
+        return :switch
       else
-        return self.cups[next_idx].length
+        return next_idx
       end
     end
   end
@@ -73,8 +76,12 @@ class Board
   end
 
   def one_side_empty?
+    self.cups[0..5].none?{|cup| cup.length > 0} || self.cups[7..12].none? {|cup| cup.length > 0}
   end
 
   def winner
+    return :draw if self.cups[6].length == self.cups[13].length
+    return self.name1 if self.cups[6].length > self.cups[13].length
+    self.name2
   end
 end
