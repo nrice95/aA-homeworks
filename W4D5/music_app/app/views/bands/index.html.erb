@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <a href="<%= user_url(current_user) %>">Back to Home</a>
+  <body>
+    <h2>Bands</h2>
+    <ul>
+      <% Band.all.each do |band| %>
+        <li>
+          <a href="<%= band_url(band)%>"><%= band.name %></a>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>

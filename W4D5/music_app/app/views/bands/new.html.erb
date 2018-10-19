@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="<%= user_url(current_user) %>">Back to Home</a>
+    <h1>Add some bands!</h1>
+    <form class="" action="<%= bands_url %>" method="post">
+      <%= auth_token %>
+      <label for="Band Name">Band Name</label>
+      <input id="Band Name" type="text" name="band[name]">
+
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

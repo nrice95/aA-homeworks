@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<style media="screen">
+  .login_label{
+    width: 60px;
+    display: inline-block;
+  }
+
+  .signup{
+    color: white;
+  }
+</style>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <a class="signup" href="<%= new_session_url %>">Log In</a>
+
+    <h3>Create Account </h3>
+    <form action="<%= users_url %>" method="post">
+      <%= auth_token %>
+
+      <label class="login_label" for="email">Email</label>
+      <input id="email" type="text" name="user[email]">
+      <br>
+      <label class="login_label" for="password">Password</label>
+      <input type="password" name="user[password]">
+
+      <input type="submit" value="Sign Up">
+    </form>
+  </body>
+</html>

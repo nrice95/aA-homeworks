@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<link rel="stylesheet"
+href="https://fonts.googleapis.com/css?family=Annie Use Your Telescope">
+<style media="screen">
+  .main_title {
+    display: flex;
+    justify-content: center;
+    font-family: "Annie Use Your Telescope";
+  }
+  html{
+    background-color: #9B59B6;
+  }
+
+  /* body{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  } */
+
+</style>
+
+
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1 class="main_title">It's a Music App or Something?</h1>
+
+    <% if current_user %>
+      <form action="<%= session_url %>" method="post">
+        <%= auth_token %>
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Log Out">
+
+      </form>
+
+      <br>
+    <% else %>
+
+    <% end %>
+
+    <% if flash[:errors] %>
+      <ul>
+        <% flash[:errors].each do |err| %>
+          <li>
+            <%= err %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
