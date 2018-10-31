@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(){
   ctx.arc(250,250,230.5,0,2*Math.PI);
   ctx.strokeStyle = "rgb(255,255,255)";
   ctx.lineWidth = 40;
-  ctx.stroke();
+  ctx.stroke();s
 
   ctx.fillStyle = "#4fad9c";
   ctx.fill();
